@@ -23,6 +23,44 @@ scanf("%d",&bt[i]);
 bt1[i]=bt[i];
 system("cls");
 }
- 
+ int wt[10];
+int flag[10];
+for(i=1;i<=n;i++)
+{
+  flag[i]=1;
+  wt[i]=0;
+ }
+ int j;
+while(n!=0)
+ {
+   for(i=1;i<=n;i++)
+   {
+     if(bt1[i]>=ts)
+     {
+	 for(j=1;j<=n;j++)
+       {
+	  if((i!=j)&&(flag[i]==1)&&(bt1[j]!=0))
+	  wt[j]+=ts;
+       }
+ bt1[i]-=ts;
+ if(bt1[i]==0)
+{
+flag[i]=0;
+n--;
+}
+}
+else
+{
+  for(j=1;j<=n;j++)
+      {
+	  if((i!=j)&&(flag[i]==1)&&(bt1[j]!=0))
+	  wt[j]+=bt1[i];
+       }
+bt1[i]=0;
+n--;
+flag[i]=0;
+}
+ }
+}
 }         
 
